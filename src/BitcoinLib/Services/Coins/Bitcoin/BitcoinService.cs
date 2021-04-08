@@ -31,9 +31,12 @@ namespace BitcoinLib.Services.Coins.Bitcoin
 
 				public string GetNewAddress(string account = "", string addressType = "")
 				{
+					return _rpcConnector.MakeRequest<string>(RpcMethods.getnewaddress, account, addressType);
+					/*
 					return string.IsNullOrWhiteSpace(account)
 						? _rpcConnector.MakeRequest<string>(RpcMethods.getnewaddress)
 						: _rpcConnector.MakeRequest<string>(RpcMethods.getnewaddress, account, addressType);
+						*/
 				}
     }
 }
